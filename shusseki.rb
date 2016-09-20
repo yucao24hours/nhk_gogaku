@@ -21,5 +21,5 @@ agent.get('https://www2.nhk.or.jp/gogaku/') do |page|
                            ./h2[contains(text(), '英会話タイムトライアル')]] \
                            //a[text()='出席簿']/@href")
 
-  my_gogaku.link_with(href: href.text).click
+  roll_book = my_gogaku.link_with(href: href.text).click
 end
