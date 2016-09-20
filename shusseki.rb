@@ -17,7 +17,9 @@ agent.get('https://www2.nhk.or.jp/gogaku/') do |page|
   my_gogaku = my_page.link_with(text: 'マイ語学トップ').click
 
   # TODO: 講座名はコマンドの引数で受け取れるようにする
-  href = my_gogaku.search("//div[@class='topProgramBox' and ./h2[contains(text(), '英会話タイムトライアル')]]//a[text()='出席簿']/@href")
+  href = my_gogaku.search("//div[@class='topProgramBox' and \
+                           ./h2[contains(text(), '英会話タイムトライアル')]] \
+                           //a[text()='出席簿']/@href")
 
   my_gogaku.link_with(href: href.text).click
 end
