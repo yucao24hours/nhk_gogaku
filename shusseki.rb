@@ -22,4 +22,8 @@ agent.get('https://www2.nhk.or.jp/gogaku/') do |page|
                            //a[text()='出席簿']/@href")
 
   roll_book = my_gogaku.link_with(href: href.text).click
+
+  # XXX XPath で取得したが checked にできない
+  #     Nokogiri::XML::Attr を new しようとしていたところ
+  checkbox = roll_book.search("//div[@id='studyDrillArea']//tr[@class='current']//td[@class='chk']/input[@type='checkbox']")
 end
